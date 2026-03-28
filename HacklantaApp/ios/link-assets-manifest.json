@@ -1,0 +1,101 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/ModernEra-Black.otf",
+      "sha1": "bce1dfed602abab7cf37e53569c07de3682296a7"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-BlackItalic.otf",
+      "sha1": "a7ca2c1da324cdfeda4d620ce994636252c073f2"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-Bold.otf",
+      "sha1": "32af783dc8a2ba09bb439f4ef916cc32ea98a774"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-BoldItalic.otf",
+      "sha1": "1b0711975a9a0544e3d91145aa2a86726eab6739"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-ExtraBold.otf",
+      "sha1": "d73f05c37b254b28ab4402ecec4c8233b73978e1"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-ExtraBoldItalic.otf",
+      "sha1": "7aeb0b977310c81ad781ab4402b5b35ffd1a5ee3"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-Italic.otf",
+      "sha1": "fdc514011d5bef234d916dbba5ed2d555f028c42"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-Light.otf",
+      "sha1": "718c37c7613b34a87879adec4927f1dc87dc75a4"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-LightItalic.otf",
+      "sha1": "6973d8e3ecee49ce95f9f8eb682bb5e37ffc2189"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-Medium.otf",
+      "sha1": "641e5048e0f4072cac86e3b7a288f01262362b0b"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-MediumItalic.otf",
+      "sha1": "12534d13ad8c68cefee95e398e681980f05ff3a7"
+    },
+    {
+      "path": "src/assets/fonts/ModernEra-Regular.otf",
+      "sha1": "5060a5930db71b8e3ba219c761756b67933e4bb4"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-Black.otf",
+      "sha1": "dfbebfd75b5a746d431ada72d429ace293e56aba"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-BlackItalic.otf",
+      "sha1": "eb76593b284c34334e092405d801569747feb1ee"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-Bold.otf",
+      "sha1": "dfb4ada4e66bbbd4b4b87e9f8e1c09e151ea1c47"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-BoldItalic.otf",
+      "sha1": "79817af6ab178cce7f11e33465455b11a8daf2d3"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-Light.otf",
+      "sha1": "cc166b979b2296ad4138f137766dba771ba886b8"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-LightItalic.otf",
+      "sha1": "2dfba6e34ff938a601eee4d1258247e8f1516c5c"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-Medium.otf",
+      "sha1": "99a5b3b67a16342826a13de9f89ffef3cbd2027e"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-MediumItalic.otf",
+      "sha1": "4878a03f0cc1c232c1e0295e4a954d605fd3b115"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-Regular.otf",
+      "sha1": "96c55b97053f962ccc2210d4279caec484074c97"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-RegularItalic.otf",
+      "sha1": "cbcde6442ed8f058fa46a065d9d2462e1ba45489"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-Semibold.otf",
+      "sha1": "7e11af485f344fa447b37e80cde228c421f65e14"
+    },
+    {
+      "path": "src/assets/fonts/TiemposHeadline-SemiboldItalic.otf",
+      "sha1": "17a39e514906e4556d79d04a546ccc6d5611cec6"
+    }
+  ]
+}
