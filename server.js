@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
 const matchRoutes = require('./routes/matches');
+const contactRoutes = require('./routes/contacts');
+const highlightRoutes = require('./routes/highlight');
 
 const app = express();
 
@@ -14,6 +16,8 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/matches', matchRoutes);
+app.use('/api/contacts', contactRoutes);
+app.use('/api/highlight', highlightRoutes);
 
 app.get('/', (req, res) => res.json({ status: 'Duo Q API running' }));
 

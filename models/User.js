@@ -9,6 +9,7 @@ const GameProfileSchema = new mongoose.Schema({
   rank: { type: String, default: '' },            // e.g. "Diamond 2"
   servers: [{ type: String }],                    // e.g. ["NA", "EU"]
   gameModes: [{ type: String }],                  // e.g. ["Ranked", "Deathmatch"]
+  platforms: [{ type: String }],                  // e.g. ["PC", "PlayStation", "Xbox"]
 }, { _id: false });
 
 const UserSchema = new mongoose.Schema({
@@ -37,7 +38,11 @@ const UserSchema = new mongoose.Schema({
   bio: { type: String, default: '' },
   region: { type: String, default: '' },          // e.g. "NA East"
   playStyle: { type: String, default: '' },       // e.g. "Competitive"
-  schedule: { type: String, default: '' },        // e.g. "Evenings & Weekends"
+  playSchedule: {
+    days: [{ type: String }],          // e.g. ["monday", "friday", "saturday", "sunday"]
+    timeSlots: [{ type: String }],     // e.g. ["evening", "night"]  (morning/afternoon/evening/night)
+    sessionLength: { type: String, default: '' }, // e.g. "1-2h", "2-4h", "4h+"
+  },
   hasMic: { type: Boolean, default: true },
 
   // App state
@@ -50,6 +55,27 @@ const UserSchema = new mongoose.Schema({
 
   // Mutual matches
   matches: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+
+  // Contact visibility — users blocked from seeing this profile
+  hiddenFromUsers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+
+  // Synced contacts (phone numbers and discord usernames) for contact matching
+  syncedContacts: [{
+    type: { type: String, enum: ['phone', 'discord'], required: true },
+    value: { type: String, required: true },
+  }],
+
+  // Uploaded gameplay clips for highlight reels
+  clips: [{
+    path: { type: String, required: true },
+    originalName: { type: String, default: '' },
+    game: { type: String, default: '' },
+    uploadedAt: { type: Date, default: Date.now },
+  }],
+
+  // This user's phone number and discord username (for contact lookup)
+  phoneNumber: { type: String, default: '' },
+  discordUsername: { type: String, default: '' },
 }, { timestamps: true });
 
 // Hash password before saving

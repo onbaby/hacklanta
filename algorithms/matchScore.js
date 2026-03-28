@@ -5,13 +5,18 @@
  *
  * Score breakdown (100 pts total):
  *   Games         — 50 pts
- *     Shared games                  up to 25 pts
+ *     Shared games                  up to 20 pts
  *     Favorite game overlap bonus   up to 15 pts
  *     Shared servers per game       up to  5 pts
  *     Shared game modes per game    up to  5 pts
- *   Age           — 20 pts
- *     Candidate fits user's range   10 pts
- *     User fits candidate's range   10 pts
+ *     Shared platforms per game     up to  5 pts
+ *   Age           — 10 pts
+ *     Candidate fits user's range    5 pts
+ *     User fits candidate's range    5 pts
+ *   Schedule      — 10 pts
+ *     Shared days                   up to  5 pts
+ *     Shared time slots             up to  3 pts
+ *     Session length match               2 pts
  *   Preferences   — 30 pts
  *     Gender match                  15 pts
  *     Ethnicity/type match          15 pts
@@ -21,6 +26,7 @@
  *   - Candidate's age outside user's preferred range
  *   - User's age outside candidate's preferred range
  *   - Gender preference mismatch (either direction)
+ *   - Ethnicity preference mismatch (either direction, only if preferences are set)
  */
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -70,6 +76,17 @@ function passesHardFilters(user, candidate) {
     !user.preferredGenders.includes(candidate.gender)
   ) return false;
 
+  // Ethnicity filter — both ways (only applies if preferences are set)
+  if (
+    candidate.preferredEthnicities?.length &&
+    !candidate.preferredEthnicities.map(e => e.toLowerCase()).includes(user.ethnicity?.toLowerCase())
+  ) return false;
+
+  if (
+    user.preferredEthnicities?.length &&
+    !user.preferredEthnicities.map(e => e.toLowerCase()).includes(candidate.ethnicity?.toLowerCase())
+  ) return false;
+
   // Must share at least one game
   const userGameIds = user.games.map(g => g.gameId);
   const candidateGameIds = candidate.games.map(g => g.gameId);
@@ -94,6 +111,7 @@ function gameScore(user, candidate) {
   let favoriteBonus = 0;
   let serverPoints = 0;
   let modePoints = 0;
+  let platformPoints = 0;
 
   for (const userGame of userGames) {
     const match = candidateMap.get(userGame.gameId.toLowerCase());
@@ -112,15 +130,19 @@ function gameScore(user, candidate) {
     // Shared game modes for this game
     const sharedModes = overlap(userGame.gameModes, match.gameModes);
     modePoints += Math.min(sharedModes.length, 3); // cap per game
+
+    // Shared platforms for this game
+    const sharedPlatforms = overlap(userGame.platforms, match.platforms);
+    platformPoints += Math.min(sharedPlatforms.length, 2); // cap per game
   }
 
   if (sharedCount === 0) return 0;
 
   const totalGames = Math.max(userGames.length, candidateGames.length);
 
-  // Shared game ratio — up to 25 pts
+  // Shared game ratio — up to 20 pts
   const sharedRatio = sharedCount / totalGames;
-  const sharedPts = sharedRatio * 25;
+  const sharedPts = sharedRatio * 20;
 
   // Favorite bonus — up to 15 pts (cap raw score)
   const favPts = Math.min(favoriteBonus * 3, 15);
@@ -131,10 +153,13 @@ function gameScore(user, candidate) {
   // Mode overlap — up to 5 pts
   const modePts = Math.min(modePoints, 5);
 
-  return Math.round(sharedPts + favPts + serverPts + modePts);
+  // Platform overlap — up to 5 pts
+  const platPts = Math.min(platformPoints, 5);
+
+  return Math.round(sharedPts + favPts + serverPts + modePts + platPts);
 }
 
-// ─── Age Score (0–20) ─────────────────────────────────────────────────────────
+// ─── Age Score (0–10) ─────────────────────────────────────────────────────────
 
 function ageScore(user, candidate) {
   const userAge = getAge(user.birthday);
@@ -146,11 +171,10 @@ function ageScore(user, candidate) {
     candidateAge >= user.preferredAgeRange.min &&
     candidateAge <= user.preferredAgeRange.max
   ) {
-    // Bonus for being near the center of the range
     const rangeMid = (user.preferredAgeRange.min + user.preferredAgeRange.max) / 2;
     const rangeHalf = (user.preferredAgeRange.max - user.preferredAgeRange.min) / 2 || 1;
     const proximity = 1 - Math.abs(candidateAge - rangeMid) / rangeHalf;
-    score += 5 + Math.round(proximity * 5); // 5–10 pts
+    score += 2 + Math.round(proximity * 3); // 2–5 pts
   }
 
   // User within candidate's range
@@ -161,10 +185,45 @@ function ageScore(user, candidate) {
     const rangeMid = (candidate.preferredAgeRange.min + candidate.preferredAgeRange.max) / 2;
     const rangeHalf = (candidate.preferredAgeRange.max - candidate.preferredAgeRange.min) / 2 || 1;
     const proximity = 1 - Math.abs(userAge - rangeMid) / rangeHalf;
-    score += 5 + Math.round(proximity * 5); // 5–10 pts
+    score += 2 + Math.round(proximity * 3); // 2–5 pts
   }
 
-  return Math.min(score, 20);
+  return Math.min(score, 10);
+}
+
+// ─── Schedule Score (0–10) ────────────────────────────────────────────────────
+
+function scheduleScore(user, candidate) {
+  const uSched = user.playSchedule;
+  const cSched = candidate.playSchedule;
+  if (!uSched || !cSched) return 0;
+
+  let score = 0;
+
+  // Shared days — up to 5 pts
+  const sharedDays = overlap(uSched.days, cSched.days);
+  const totalDays = Math.max(uSched.days?.length || 0, cSched.days?.length || 0);
+  if (totalDays > 0) {
+    score += Math.round((sharedDays.length / totalDays) * 5);
+  }
+
+  // Shared time slots — up to 3 pts
+  const sharedSlots = overlap(uSched.timeSlots, cSched.timeSlots);
+  const totalSlots = Math.max(uSched.timeSlots?.length || 0, cSched.timeSlots?.length || 0);
+  if (totalSlots > 0) {
+    score += Math.round((sharedSlots.length / totalSlots) * 3);
+  }
+
+  // Session length match — 2 pts
+  if (
+    uSched.sessionLength &&
+    cSched.sessionLength &&
+    uSched.sessionLength === cSched.sessionLength
+  ) {
+    score += 2;
+  }
+
+  return Math.min(score, 10);
 }
 
 // ─── Preference Score (0–30) ──────────────────────────────────────────────────
@@ -176,28 +235,8 @@ function preferenceScore(user, candidate) {
   score += 15;
 
   // Ethnicity/type preference — 15 pts
-  const userWantsAnyone = !user.preferredEthnicities?.length;
-  const candidateWantsAnyone = !candidate.preferredEthnicities?.length;
-
-  if (userWantsAnyone && candidateWantsAnyone) {
-    score += 15; // both open to anyone
-  } else if (userWantsAnyone || candidateWantsAnyone) {
-    // One is open to anyone — check the other direction
-    const specificUser = userWantsAnyone ? candidate : user;
-    const otherUser = userWantsAnyone ? user : candidate;
-    if (specificUser.preferredEthnicities.includes(otherUser.ethnicity)) {
-      score += 15;
-    } else {
-      score += 5; // partial — one side open but other isn't matched
-    }
-  } else {
-    // Both have preferences — check both ways
-    const userLikesCandidate = user.preferredEthnicities.includes(candidate.ethnicity);
-    const candidateLikesUser = candidate.preferredEthnicities.includes(user.ethnicity);
-    if (userLikesCandidate && candidateLikesUser) score += 15;
-    else if (userLikesCandidate || candidateLikesUser) score += 7;
-    // else 0
-  }
+  // Already verified as a hard filter, so always award full points
+  score += 15;
 
   return Math.min(score, 30);
 }
@@ -214,13 +253,14 @@ function scoreCandidate(user, candidate) {
 
   const games = gameScore(user, candidate);
   const age = ageScore(user, candidate);
+  const schedule = scheduleScore(user, candidate);
   const preferences = preferenceScore(user, candidate);
-  const total = games + age + preferences;
+  const total = games + age + schedule + preferences;
 
   return {
     candidateId: candidate._id,
     total,
-    breakdown: { games, age, preferences },
+    breakdown: { games, age, schedule, preferences },
   };
 }
 
