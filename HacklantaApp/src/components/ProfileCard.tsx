@@ -395,6 +395,10 @@ const ProfileCard: React.FC<ProfileCardProps> = ({profile}) => {
                     repeat
                     muted
                     paused={false}
+                    hideShutterView
+                    playInBackground={false}
+                    playWhenInactive={false}
+                    onError={(e: any) => console.warn('Video error:', e)}
                   />
                 </View>
               )}
@@ -423,12 +427,15 @@ const ProfileCard: React.FC<ProfileCardProps> = ({profile}) => {
                     <View key={i} style={styles.vibeImageWrapper}>
                       {item.type === 'video' ? (
                         <Video
-                          source={typeof item.source === 'number' ? item.source : {uri: item.source}}
+                          source={typeof item.source === 'number' ? {uri: item.source as unknown as string} : {uri: item.source}}
                           style={styles.vibeImage}
                           resizeMode="cover"
                           repeat
                           muted
                           paused={false}
+                          hideShutterView
+                          playInBackground={false}
+                          playWhenInactive={false}
                         />
                       ) : (
                         <Image
@@ -512,6 +519,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({profile}) => {
             ]}
           />
         ))}
+        <Text style={styles.photoCount}>x{photoCount}</Text>
       </Animated.View>
     </View>
   );
@@ -549,8 +557,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 58,
     left: 60,
-    right: 60,
+    right: 40,
     flexDirection: 'row',
+    alignItems: 'center',
     gap: 4,
   },
   photoBar: {
@@ -563,6 +572,12 @@ const styles = StyleSheet.create({
   },
   photoBarInactive: {
     backgroundColor: 'rgba(255,255,255,0.35)',
+  },
+  photoCount: {
+    color: 'rgba(255,255,255,0.9)',
+    fontSize: 12,
+    fontFamily: 'ModernEra-Bold',
+    marginLeft: 4,
   },
   scrollContent: {
     paddingBottom: 100,

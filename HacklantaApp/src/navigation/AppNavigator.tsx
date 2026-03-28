@@ -9,7 +9,6 @@ import {BlurView} from '@react-native-community/blur';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen';
-import MatchScreen from '../screens/MatchScreen';
 import MessagesScreen from '../screens/MessagesScreen';
 import ChatScreen from '../screens/ChatScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -75,14 +74,6 @@ function TabIcon({label, focused}: {label: string; focused: boolean}) {
         <Path d="M20 11V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V11" stroke="#fff" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
       </Svg>
     );
-  } else if (label === 'Match') {
-    icon = (
-      <Svg width={sz} height={sz} viewBox="0 0 24 24" fill="none">
-        <Path d="M7 12L17 12" stroke="#fff" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
-        <Path d="M7 8L13 8" stroke="#fff" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
-        <Path d="M3 20.2895V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V15C21 16.1046 20.1046 17 19 17H7.96125C7.35368 17 6.77906 17.2762 6.39951 17.7506L4.06852 20.6643C3.71421 21.1072 3 20.8567 3 20.2895Z" stroke="#fff" strokeWidth={sw} />
-      </Svg>
-    );
   } else if (label === 'Messages') {
     icon = (
       <Svg width={sz} height={sz} viewBox="0 0 24 24" fill="none">
@@ -107,7 +98,20 @@ function TabIcon({label, focused}: {label: string; focused: boolean}) {
 
   return (
     <Animated.View style={{transform: [{scale}], opacity}}>
-      {icon}
+      <View>
+        {icon}
+        {label === 'Messages' && (
+          <View style={{
+            position: 'absolute',
+            top: -2,
+            right: -4,
+            width: 8,
+            height: 8,
+            borderRadius: 4,
+            backgroundColor: '#FF3B30',
+          }} />
+        )}
+      </View>
     </Animated.View>
   );
 }
@@ -215,12 +219,7 @@ function MainTabs() {
         component={HomeScreen}
         options={{headerShown: false}}
       />
-      <Tab.Screen
-        name="Match"
-        component={MatchScreen}
-        options={{title: 'Find Duo'}}
-      />
-      <Tab.Screen
+<Tab.Screen
         name="Messages"
         component={MessagesScreen}
         options={{headerShown: false}}
@@ -228,7 +227,7 @@ function MainTabs() {
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{title: 'Profile'}}
+        options={{headerShown: false}}
       />
     </Tab.Navigator>
   );

@@ -10,6 +10,7 @@ import {
   Animated,
 } from 'react-native';
 import Svg, {Path, Circle} from 'react-native-svg';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {mockProfiles} from '../constants/mockProfiles';
 import {Profile} from '../types/profile';
 import ProfileCard from '../components/ProfileCard';
@@ -151,6 +152,9 @@ const ProfileScreen = () => {
   const [activeTab, setActiveTab] = useState<'edit' | 'view'>('edit');
   const profile = currentUser;
 
+  const headerAnim = useRef(new Animated.Value(1)).current;
+  const insets = useSafeAreaInsets();
+
   const editOpacity = useRef(new Animated.Value(1)).current;
   const viewOpacity = useRef(new Animated.Value(0)).current;
   const editTranslateX = useRef(new Animated.Value(0)).current;
@@ -166,6 +170,7 @@ const ProfileScreen = () => {
         Animated.timing(editTranslateX, {toValue: -40, duration: 250, useNativeDriver: true}),
         Animated.timing(viewOpacity, {toValue: 1, duration: 250, useNativeDriver: true}),
         Animated.timing(viewTranslateX, {toValue: 0, duration: 250, useNativeDriver: true}),
+        Animated.timing(headerAnim, {toValue: 0, duration: 250, useNativeDriver: false}),
       ]).start();
     } else {
       Animated.parallel([
@@ -173,14 +178,32 @@ const ProfileScreen = () => {
         Animated.timing(viewTranslateX, {toValue: 40, duration: 250, useNativeDriver: true}),
         Animated.timing(editOpacity, {toValue: 1, duration: 250, useNativeDriver: true}),
         Animated.timing(editTranslateX, {toValue: 0, duration: 250, useNativeDriver: true}),
+        Animated.timing(headerAnim, {toValue: 1, duration: 250, useNativeDriver: false}),
       ]).start();
     }
   };
 
   return (
     <View style={styles.container}>
-      {/* Tab Switcher */}
-      <View style={styles.tabRow}>
+      {/* Safe area + Header */}
+      <Animated.View style={{
+        paddingTop: insets.top,
+        backgroundColor: headerAnim.interpolate({inputRange: [0, 1], outputRange: ['rgba(15,15,26,0)', 'rgba(15,15,26,1)']}),
+        zIndex: 1,
+      }}>
+        <Animated.View style={{
+          height: headerAnim.interpolate({inputRange: [0, 1], outputRange: [0, 44]}),
+          opacity: headerAnim,
+          overflow: 'hidden',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <Text style={styles.headerTitle}>Profile</Text>
+        </Animated.View>
+        {/* Tab Switcher */}
+        <Animated.View style={[styles.tabRow, {
+          backgroundColor: headerAnim.interpolate({inputRange: [0, 1], outputRange: ['rgba(26,26,46,0.5)', '#1a1a2e']}),
+        }]}>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'edit' && styles.tabActive]}
           onPress={() => switchTab('edit')}>
@@ -191,8 +214,10 @@ const ProfileScreen = () => {
           onPress={() => switchTab('view')}>
           <Text style={[styles.tabText, activeTab === 'view' && styles.tabTextActive]}>View</Text>
         </TouchableOpacity>
-      </View>
+      </Animated.View>
+      </Animated.View>
 
+      <View style={{flex: 1}}>
       {/* View Mode — ProfileCard preview */}
       <Animated.View
         style={[
@@ -432,6 +457,7 @@ const ProfileScreen = () => {
         </View>
       </ScrollView>
       </Animated.View>
+      </View>
     </View>
   );
 };
@@ -446,19 +472,23 @@ const styles = StyleSheet.create({
   },
   viewContainer: {
     ...StyleSheet.absoluteFillObject,
-    top: 52,
   },
   scrollContent: {
     paddingBottom: 40,
   },
 
+  headerTitle: {
+    color: '#fff',
+    fontSize: 17,
+    fontFamily: 'ModernEra-Bold',
+    fontWeight: 'bold',
+  },
   // Tab switcher
   tabRow: {
     flexDirection: 'row',
     marginHorizontal: 20,
     marginTop: 8,
     marginBottom: 16,
-    backgroundColor: '#1a1a2e',
     borderRadius: 12,
     padding: 3,
   },

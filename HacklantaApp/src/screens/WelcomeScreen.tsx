@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
+  Image,
   Dimensions,
   ViewToken,
 } from 'react-native';
@@ -17,24 +18,30 @@ type WelcomeScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Welcome'>;
 };
 
-const slides = [
+type Slide = {
+  id: string;
+  title: string;
+  description: string;
+  icon?: string;
+  image?: any;
+};
+
+const slides: Slide[] = [
   {
     id: '1',
-    icon: '🎮',
+    image: require('../assets/onboarding_find_duo.png'),
     title: 'Find Your Duo',
     description:
       'Connect with gamers who match your play style, rank, and vibe. No more solo queue.',
   },
   {
     id: '2',
-    icon: '🔥',
     title: 'Swipe & Match',
     description:
       'See profiles of nearby gamers. Swipe right if you want to squad up. It\'s that easy.',
   },
   {
     id: '3',
-    icon: '🏆',
     title: 'Level Up Together',
     description:
       'Chat, party up, and climb the ranks with your new duo. GG go next.',
@@ -74,9 +81,17 @@ const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
         keyExtractor={item => item.id}
         renderItem={({item}) => (
           <View style={styles.slide}>
-            <Text style={styles.icon}>{item.icon}</Text>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
+            <View style={styles.slideImageArea}>
+              {item.image ? (
+                <Image source={item.image} style={styles.slideImage} resizeMode="contain" />
+              ) : (
+                <Text style={styles.icon}>{item.icon}</Text>
+              )}
+            </View>
+            <View style={styles.slideTextArea}>
+              <Text style={styles.title}>{item.title}</Text>
+              <Text style={styles.description}>{item.description}</Text>
+            </View>
           </View>
         )}
       />
@@ -117,25 +132,32 @@ const styles = StyleSheet.create({
   slide: {
     width,
     flex: 1,
+    paddingHorizontal: 40,
+  },
+  slideImageArea: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 40,
+  },
+  slideImage: {
+    width: width * 0.75,
+    height: width * 0.75,
   },
   icon: {
     fontSize: 80,
-    marginBottom: 24,
+  },
+  slideTextArea: {
+    paddingBottom: 24,
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 16,
-    textAlign: 'center',
+    marginBottom: 12,
   },
   description: {
     fontSize: 16,
     color: '#aaa',
-    textAlign: 'center',
     lineHeight: 24,
   },
   footer: {
