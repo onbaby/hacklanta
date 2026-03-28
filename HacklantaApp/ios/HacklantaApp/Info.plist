@@ -29,7 +29,7 @@
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<false/>
+		<true/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
@@ -37,6 +37,33 @@
 	<string></string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ModernEra-LightItalic.otf</string>
+		<string>TiemposHeadline-Semibold.otf</string>
+		<string>TiemposHeadline-SemiboldItalic.otf</string>
+		<string>ModernEra-Bold.otf</string>
+		<string>ModernEra-Medium.otf</string>
+		<string>ModernEra-ExtraBoldItalic.otf</string>
+		<string>TiemposHeadline-Black.otf</string>
+		<string>ModernEra-BlackItalic.otf</string>
+		<string>ModernEra-Regular.otf</string>
+		<string>TiemposHeadline-RegularItalic.otf</string>
+		<string>ModernEra-Light.otf</string>
+		<string>TiemposHeadline-MediumItalic.otf</string>
+		<string>ModernEra-MediumItalic.otf</string>
+		<string>ModernEra-Black.otf</string>
+		<string>TiemposHeadline-LightItalic.otf</string>
+		<string>TiemposHeadline-Bold.otf</string>
+		<string>TiemposHeadline-Light.otf</string>
+		<string>ModernEra-BoldItalic.otf</string>
+		<string>TiemposHeadline-BoldItalic.otf</string>
+		<string>TiemposHeadline-Regular.otf</string>
+		<string>ModernEra-Italic.otf</string>
+		<string>ModernEra-ExtraBold.otf</string>
+		<string>TiemposHeadline-BlackItalic.otf</string>
+		<string>TiemposHeadline-Medium.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

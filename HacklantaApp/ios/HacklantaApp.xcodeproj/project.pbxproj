@@ -7,24 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01857FDE1EAA41D39CDB6C09 /* ModernEra-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6BE3A4B5490430CA9856423 /* ModernEra-BoldItalic.otf */; };
+		0B6E50E612114F049A2BE6C8 /* ModernEra-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9B2A8BC6AE14009B8694FFE /* ModernEra-MediumItalic.otf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-HacklantaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-HacklantaApp.a */; };
+		13037AE1EFF04ED086937FF9 /* TiemposHeadline-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09BE483BA3A642EEABA4340C /* TiemposHeadline-Light.otf */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		190E2E5EC4704C67BC74682A /* TiemposHeadline-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA29B35D91A0444EBDC1BB99 /* TiemposHeadline-Bold.otf */; };
+		1D33B4847CD64AB48A6D1531 /* ModernEra-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78ED7A89261B4F908BB099C1 /* ModernEra-LightItalic.otf */; };
 		1E403F54DA9908636FBB1126 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		2A98D204D2034F8CBBA8D63C /* ModernEra-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6BE054B5B68544AA91B02D71 /* ModernEra-ExtraBoldItalic.otf */; };
+		315579308A7A481A944AD0EA /* ModernEra-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F0CE2D68CFE4CB18B73FEE3 /* ModernEra-Bold.otf */; };
+		3BFC3A2C36D64B948CCC6413 /* TiemposHeadline-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE7660126B494AB282666A04 /* TiemposHeadline-LightItalic.otf */; };
+		4BD6BC5667C8463AB6D3976C /* TiemposHeadline-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA1BCCEF0447DC9BF90617 /* TiemposHeadline-Semibold.otf */; };
+		5A464C6722734D2DB84486D9 /* TiemposHeadline-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4714F49BAB40449D9C40E2C8 /* TiemposHeadline-BlackItalic.otf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		85B56BA1D10043E7964B5B9C /* ModernEra-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 179D66FD4BE74ADA9ED57A7F /* ModernEra-BlackItalic.otf */; };
+		8A67283F477044268F1FB795 /* TiemposHeadline-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D5CA74F9FB9430D93A845FD /* TiemposHeadline-RegularItalic.otf */; };
+		936DED4E4A68414E8A32F49E /* ModernEra-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5B824B8D50C47019EA5A7A3 /* ModernEra-Regular.otf */; };
+		9F04A085E9FD46F2BDE0157E /* ModernEra-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27C758C4BD9F4C2E873F587D /* ModernEra-ExtraBold.otf */; };
+		9F49F98B97A048009B4AE7E9 /* ModernEra-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9D34EFCCEDA44219498CDF3 /* ModernEra-Medium.otf */; };
+		A90705B202A240329DD47E65 /* TiemposHeadline-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 222258785313470DBAF7D277 /* TiemposHeadline-MediumItalic.otf */; };
+		AB15A3E11B2248F48663800A /* TiemposHeadline-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 781A3B86DA314E8592034141 /* TiemposHeadline-Medium.otf */; };
+		ACFB5C6A5F8E4AD7997F46C3 /* TiemposHeadline-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 010D8F5B3EEB49B4A54686FE /* TiemposHeadline-BoldItalic.otf */; };
+		B86B33DA09E14BD0844CD8C4 /* TiemposHeadline-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D3B20D8AD3BB4685956F546E /* TiemposHeadline-SemiboldItalic.otf */; };
+		C675372ADF274498A0D11F71 /* TiemposHeadline-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6D728D692C24115B6DAB3E6 /* TiemposHeadline-Black.otf */; };
+		D236BB7A48624742A0A742B9 /* TiemposHeadline-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 13E442B82C52437F976CB943 /* TiemposHeadline-Regular.otf */; };
+		D90EFE473AFB42D181557DE4 /* ModernEra-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 56D79BD1DD4D406DA7E4B5CE /* ModernEra-Italic.otf */; };
+		E8D37158129D4A8A999E4397 /* ModernEra-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC40866D0B8248AEAA1171B8 /* ModernEra-Black.otf */; };
+		FE5BC9D1583B4EE082230FE6 /* ModernEra-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4D41F9A8D4A4344A007040D /* ModernEra-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010D8F5B3EEB49B4A54686FE /* TiemposHeadline-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-BoldItalic.otf"; path = "../src/assets/fonts/TiemposHeadline-BoldItalic.otf"; sourceTree = "<group>"; };
+		09BE483BA3A642EEABA4340C /* TiemposHeadline-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-Light.otf"; path = "../src/assets/fonts/TiemposHeadline-Light.otf"; sourceTree = "<group>"; };
+		0F0CE2D68CFE4CB18B73FEE3 /* ModernEra-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-Bold.otf"; path = "../src/assets/fonts/ModernEra-Bold.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* HacklantaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HacklantaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HacklantaApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HacklantaApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = HacklantaApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13E442B82C52437F976CB943 /* TiemposHeadline-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-Regular.otf"; path = "../src/assets/fonts/TiemposHeadline-Regular.otf"; sourceTree = "<group>"; };
+		179D66FD4BE74ADA9ED57A7F /* ModernEra-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-BlackItalic.otf"; path = "../src/assets/fonts/ModernEra-BlackItalic.otf"; sourceTree = "<group>"; };
+		222258785313470DBAF7D277 /* TiemposHeadline-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-MediumItalic.otf"; path = "../src/assets/fonts/TiemposHeadline-MediumItalic.otf"; sourceTree = "<group>"; };
+		27C758C4BD9F4C2E873F587D /* ModernEra-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-ExtraBold.otf"; path = "../src/assets/fonts/ModernEra-ExtraBold.otf"; sourceTree = "<group>"; };
+		2EBA1BCCEF0447DC9BF90617 /* TiemposHeadline-Semibold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-Semibold.otf"; path = "../src/assets/fonts/TiemposHeadline-Semibold.otf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-HacklantaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HacklantaApp.debug.xcconfig"; path = "Target Support Files/Pods-HacklantaApp/Pods-HacklantaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4714F49BAB40449D9C40E2C8 /* TiemposHeadline-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-BlackItalic.otf"; path = "../src/assets/fonts/TiemposHeadline-BlackItalic.otf"; sourceTree = "<group>"; };
+		56D79BD1DD4D406DA7E4B5CE /* ModernEra-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-Italic.otf"; path = "../src/assets/fonts/ModernEra-Italic.otf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-HacklantaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HacklantaApp.release.xcconfig"; path = "Target Support Files/Pods-HacklantaApp/Pods-HacklantaApp.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-HacklantaApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HacklantaApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BE054B5B68544AA91B02D71 /* ModernEra-ExtraBoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-ExtraBoldItalic.otf"; path = "../src/assets/fonts/ModernEra-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = HacklantaApp/AppDelegate.swift; sourceTree = "<group>"; };
+		781A3B86DA314E8592034141 /* TiemposHeadline-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-Medium.otf"; path = "../src/assets/fonts/TiemposHeadline-Medium.otf"; sourceTree = "<group>"; };
+		78ED7A89261B4F908BB099C1 /* ModernEra-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-LightItalic.otf"; path = "../src/assets/fonts/ModernEra-LightItalic.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HacklantaApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8D5CA74F9FB9430D93A845FD /* TiemposHeadline-RegularItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-RegularItalic.otf"; path = "../src/assets/fonts/TiemposHeadline-RegularItalic.otf"; sourceTree = "<group>"; };
+		A6D728D692C24115B6DAB3E6 /* TiemposHeadline-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-Black.otf"; path = "../src/assets/fonts/TiemposHeadline-Black.otf"; sourceTree = "<group>"; };
+		B4D41F9A8D4A4344A007040D /* ModernEra-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-Light.otf"; path = "../src/assets/fonts/ModernEra-Light.otf"; sourceTree = "<group>"; };
+		B6BE3A4B5490430CA9856423 /* ModernEra-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-BoldItalic.otf"; path = "../src/assets/fonts/ModernEra-BoldItalic.otf"; sourceTree = "<group>"; };
+		C5B824B8D50C47019EA5A7A3 /* ModernEra-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-Regular.otf"; path = "../src/assets/fonts/ModernEra-Regular.otf"; sourceTree = "<group>"; };
+		CE7660126B494AB282666A04 /* TiemposHeadline-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-LightItalic.otf"; path = "../src/assets/fonts/TiemposHeadline-LightItalic.otf"; sourceTree = "<group>"; };
+		D3B20D8AD3BB4685956F546E /* TiemposHeadline-SemiboldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-SemiboldItalic.otf"; path = "../src/assets/fonts/TiemposHeadline-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		DA29B35D91A0444EBDC1BB99 /* TiemposHeadline-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TiemposHeadline-Bold.otf"; path = "../src/assets/fonts/TiemposHeadline-Bold.otf"; sourceTree = "<group>"; };
+		EC40866D0B8248AEAA1171B8 /* ModernEra-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-Black.otf"; path = "../src/assets/fonts/ModernEra-Black.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F9B2A8BC6AE14009B8694FFE /* ModernEra-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-MediumItalic.otf"; path = "../src/assets/fonts/ModernEra-MediumItalic.otf"; sourceTree = "<group>"; };
+		F9D34EFCCEDA44219498CDF3 /* ModernEra-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ModernEra-Medium.otf"; path = "../src/assets/fonts/ModernEra-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +123,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				DB7029FEA91846FD81264937 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -96,6 +145,38 @@
 				5709B34CF0A7D63546082F79 /* Pods-HacklantaApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB7029FEA91846FD81264937 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78ED7A89261B4F908BB099C1 /* ModernEra-LightItalic.otf */,
+				2EBA1BCCEF0447DC9BF90617 /* TiemposHeadline-Semibold.otf */,
+				D3B20D8AD3BB4685956F546E /* TiemposHeadline-SemiboldItalic.otf */,
+				0F0CE2D68CFE4CB18B73FEE3 /* ModernEra-Bold.otf */,
+				F9D34EFCCEDA44219498CDF3 /* ModernEra-Medium.otf */,
+				6BE054B5B68544AA91B02D71 /* ModernEra-ExtraBoldItalic.otf */,
+				A6D728D692C24115B6DAB3E6 /* TiemposHeadline-Black.otf */,
+				179D66FD4BE74ADA9ED57A7F /* ModernEra-BlackItalic.otf */,
+				C5B824B8D50C47019EA5A7A3 /* ModernEra-Regular.otf */,
+				8D5CA74F9FB9430D93A845FD /* TiemposHeadline-RegularItalic.otf */,
+				B4D41F9A8D4A4344A007040D /* ModernEra-Light.otf */,
+				222258785313470DBAF7D277 /* TiemposHeadline-MediumItalic.otf */,
+				F9B2A8BC6AE14009B8694FFE /* ModernEra-MediumItalic.otf */,
+				EC40866D0B8248AEAA1171B8 /* ModernEra-Black.otf */,
+				CE7660126B494AB282666A04 /* TiemposHeadline-LightItalic.otf */,
+				DA29B35D91A0444EBDC1BB99 /* TiemposHeadline-Bold.otf */,
+				09BE483BA3A642EEABA4340C /* TiemposHeadline-Light.otf */,
+				B6BE3A4B5490430CA9856423 /* ModernEra-BoldItalic.otf */,
+				010D8F5B3EEB49B4A54686FE /* TiemposHeadline-BoldItalic.otf */,
+				13E442B82C52437F976CB943 /* TiemposHeadline-Regular.otf */,
+				56D79BD1DD4D406DA7E4B5CE /* ModernEra-Italic.otf */,
+				27C758C4BD9F4C2E873F587D /* ModernEra-ExtraBold.otf */,
+				4714F49BAB40449D9C40E2C8 /* TiemposHeadline-BlackItalic.otf */,
+				781A3B86DA314E8592034141 /* TiemposHeadline-Medium.otf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +242,30 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				1E403F54DA9908636FBB1126 /* PrivacyInfo.xcprivacy in Resources */,
+				1D33B4847CD64AB48A6D1531 /* ModernEra-LightItalic.otf in Resources */,
+				4BD6BC5667C8463AB6D3976C /* TiemposHeadline-Semibold.otf in Resources */,
+				B86B33DA09E14BD0844CD8C4 /* TiemposHeadline-SemiboldItalic.otf in Resources */,
+				315579308A7A481A944AD0EA /* ModernEra-Bold.otf in Resources */,
+				9F49F98B97A048009B4AE7E9 /* ModernEra-Medium.otf in Resources */,
+				2A98D204D2034F8CBBA8D63C /* ModernEra-ExtraBoldItalic.otf in Resources */,
+				C675372ADF274498A0D11F71 /* TiemposHeadline-Black.otf in Resources */,
+				85B56BA1D10043E7964B5B9C /* ModernEra-BlackItalic.otf in Resources */,
+				936DED4E4A68414E8A32F49E /* ModernEra-Regular.otf in Resources */,
+				8A67283F477044268F1FB795 /* TiemposHeadline-RegularItalic.otf in Resources */,
+				FE5BC9D1583B4EE082230FE6 /* ModernEra-Light.otf in Resources */,
+				A90705B202A240329DD47E65 /* TiemposHeadline-MediumItalic.otf in Resources */,
+				0B6E50E612114F049A2BE6C8 /* ModernEra-MediumItalic.otf in Resources */,
+				E8D37158129D4A8A999E4397 /* ModernEra-Black.otf in Resources */,
+				3BFC3A2C36D64B948CCC6413 /* TiemposHeadline-LightItalic.otf in Resources */,
+				190E2E5EC4704C67BC74682A /* TiemposHeadline-Bold.otf in Resources */,
+				13037AE1EFF04ED086937FF9 /* TiemposHeadline-Light.otf in Resources */,
+				01857FDE1EAA41D39CDB6C09 /* ModernEra-BoldItalic.otf in Resources */,
+				ACFB5C6A5F8E4AD7997F46C3 /* TiemposHeadline-BoldItalic.otf in Resources */,
+				D236BB7A48624742A0A742B9 /* TiemposHeadline-Regular.otf in Resources */,
+				D90EFE473AFB42D181557DE4 /* ModernEra-Italic.otf in Resources */,
+				9F04A085E9FD46F2BDE0157E /* ModernEra-ExtraBold.otf in Resources */,
+				5A464C6722734D2DB84486D9 /* TiemposHeadline-BlackItalic.otf in Resources */,
+				AB15A3E11B2248F48663800A /* TiemposHeadline-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
