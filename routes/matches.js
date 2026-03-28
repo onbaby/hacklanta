@@ -23,6 +23,7 @@ router.get('/feed', auth, async (req, res) => {
 
     const candidates = await User.find({
       _id: { $nin: [...excluded] },
+      hiddenFromUsers: { $ne: user._id },
     });
 
     const ranked = rankCandidates(user, candidates);
@@ -74,6 +75,30 @@ router.post('/swipe', auth, async (req, res) => {
 
     await user.save();
     res.json({ matched: false });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/**
+ * DELETE /api/matches/:targetId
+ * Removes a mutual match for both users.
+ */
+router.delete('/:targetId', auth, async (req, res) => {
+  try {
+    const { targetId } = req.params;
+
+    const user = await User.findById(req.user.id);
+    const target = await User.findById(targetId);
+    if (!user || !target) return res.status(404).json({ error: 'User not found' });
+
+    user.matches = user.matches.filter(id => id.toString() !== targetId);
+    target.matches = target.matches.filter(id => id.toString() !== user._id.toString());
+
+    await user.save();
+    await target.save();
+
+    res.json({ unmatched: true });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
